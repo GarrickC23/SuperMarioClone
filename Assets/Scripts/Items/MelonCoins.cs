@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class MelonCoins : MonoBehaviour
 {
+    public Animator anim; 
+    public float destroyTime; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = gameObject.GetComponent<Animator>(); 
     }
 
     // Update is called once per frame
@@ -18,6 +20,7 @@ public class MelonCoins : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(this.gameObject);
+        anim.Play("CoinCollected");
+        Destroy(this.gameObject, destroyTime);
     }
 }
