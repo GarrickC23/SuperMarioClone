@@ -268,7 +268,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -4801923697170587870, guid: be1a5bd13766ec048bab6f4c578baa0f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -289,7 +289,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975198978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.0501556, y: 2.3469028, z: 0}
+  m_LocalPosition: {x: 4.13, y: 2.08, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -306,6 +306,9 @@ GameObject:
   - component: {fileID: 1163045619}
   - component: {fileID: 1163045618}
   - component: {fileID: 1163045617}
+  - component: {fileID: 1163045620}
+  - component: {fileID: 1163045622}
+  - component: {fileID: 1163045621}
   m_Layer: 0
   m_Name: MaskEnemy
   m_TagString: Untagged
@@ -398,6 +401,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163045620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163045616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2cf9ac695a9574b846a40609edc9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  walkingLeft: 0
+--- !u!50 &1163045621
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163045616}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!70 &1163045622
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163045616}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.32, y: 0.32}
+  m_Direction: 0
 --- !u!1 &1506105335
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,7 +701,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8049ea91a9d5fca4dab4024c0915dbe6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -707,7 +761,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1891081714}
-  speed: 3
+  walkSpeed: 3
+  sprintSpeed: 5
+  sprintMultiplier: 5
 --- !u!50 &1891081714
 Rigidbody2D:
   serializedVersion: 4
@@ -992,12 +1048,12 @@ PrefabInstance:
     - target: {fileID: 8222478387763794606, guid: 60c9e93bc2b682445a0afa57124e8a27,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.72
+      value: -1.26
       objectReference: {fileID: 0}
     - target: {fileID: 8222478387763794606, guid: 60c9e93bc2b682445a0afa57124e8a27,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.26
+      value: -3.09
       objectReference: {fileID: 0}
     - target: {fileID: 8222478387763794606, guid: 60c9e93bc2b682445a0afa57124e8a27,
         type: 3}
@@ -1061,12 +1117,12 @@ PrefabInstance:
     - target: {fileID: 4801063594072947362, guid: 001beb57b489c444cabc0ad0696a9eda,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.14
+      value: -4.2
       objectReference: {fileID: 0}
     - target: {fileID: 4801063594072947362, guid: 001beb57b489c444cabc0ad0696a9eda,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.27
+      value: 1.19
       objectReference: {fileID: 0}
     - target: {fileID: 4801063594072947362, guid: 001beb57b489c444cabc0ad0696a9eda,
         type: 3}
@@ -1186,12 +1242,6 @@ PrefabInstance:
         type: 3}
       propertyPath: anim
       value: 
-      objectReference: {fileID: 6482977654715659695}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8fdf4dd003905547b335f0801160307, type: 3}
---- !u!95 &6482977654715659695 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6482977655897326077, guid: a8fdf4dd003905547b335f0801160307,
-    type: 3}
-  m_PrefabInstance: {fileID: 6482977654715659694}
-  m_PrefabAsset: {fileID: 0}

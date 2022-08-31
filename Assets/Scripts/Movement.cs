@@ -27,6 +27,13 @@ public class Movement : MonoBehaviour
             rb.velocity = new Vector2(0, 10);
             isJumping = true;
         }
+        
+        //Running
+        speed = walkSpeed;
+        if ( Input.GetKey(KeyCode.LeftShift) )
+        {
+            speed *= sprintMultiplier;
+        }
 
         //Left, Right
         float x = Input.GetAxis("Horizontal");
@@ -35,11 +42,6 @@ public class Movement : MonoBehaviour
         //Running
         //if ( !Input.GetKeyDown(KeyCode.LeftShift) )
         //{
-        speed = walkSpeed;
-        if ( Input.GetKey(KeyCode.LeftShift) )
-        {
-            speed *= sprintMultiplier;
-        }
         //}
         // if ( Input.GetKey(KeyCode.LeftShift) )
         // {

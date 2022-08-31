@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MelonCoins : MonoBehaviour
 {
-    public Animator anim; 
+    private Animator anim; 
     public float destroyTime; 
     // Start is called before the first frame update
     void Start()
