@@ -24,7 +24,7 @@ public class GoombaMovement : MonoBehaviour
     {
         //gameObject.transform.Rotate(0, 180, 0, Space.World);
         //transform.RotateAround(gameObject.transform.position, Vector3.up, 180);
-        if ( collision.gameObject.tag != "Ground" )
+        if ( collision.gameObject.tag != "Ground" || collision.gameObject.tag != "Blocks" )
         {
             if ( walkingLeft )
             {

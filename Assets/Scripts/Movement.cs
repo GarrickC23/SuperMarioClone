@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public Animator anim;
     private float speed;
     public float walkSpeed = 3; 
     public float sprintSpeed = 5; 
@@ -14,6 +15,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -37,7 +39,18 @@ public class Movement : MonoBehaviour
 
         //Left, Right
         float x = Input.GetAxis("Horizontal");
-        transform.position += new Vector3(x, 0, 0) * speed * Time.deltaTime; 
+        if ( x > 0 )
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.position += new Vector3(x, 0, 0) * speed * Time.deltaTime; 
+            anim.Play("MarioRun");
+        }
+        else if (x < 0 ) 
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.position += new Vector3(x, 0, 0) * speed * Time.deltaTime; 
+            anim.Play("MarioRun");
+        }
 
         //Running
         //if ( !Input.GetKeyDown(KeyCode.LeftShift) )
