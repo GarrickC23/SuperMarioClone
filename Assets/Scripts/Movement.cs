@@ -71,7 +71,7 @@ public class Movement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if ( collision.gameObject.tag == "Ground" )
+        if ( collision.gameObject.tag == "Blocks" )
         {
             isJumping = false;
         }

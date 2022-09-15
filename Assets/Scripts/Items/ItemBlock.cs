@@ -8,5 +8,6 @@ public class ItemBlock : MonoBehaviour
     [SerializeField] private float destroyTime;
     void OnTriggerEnter2D(Collider2D coll){
         Instantiate(emptyBox, transform.position, transform.rotation);
+        Destroy(this.gameObject, destroyTime);
     }
 }
