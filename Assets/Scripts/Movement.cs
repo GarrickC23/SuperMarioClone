@@ -11,6 +11,11 @@ public class Movement : MonoBehaviour
     public float sprintSpeed = 5; 
     public float sprintMultiplier = 5;
     private bool isJumping = false;
+
+    public GameObject fireball;
+    private FireFlower power; 
+    public float launchVelocity = 700f; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -66,6 +71,13 @@ public class Movement : MonoBehaviour
         if ( Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) )
         {
             Debug.Log("crouched");
+        }
+
+        if ( Input.GetButtonDown("Fire1") )
+        {
+            //Debug.Log(power.firePower);
+            GameObject ball = Instantiate(fireball, transform.position + (transform.right * 1), transform.rotation);
+            ball.GetComponent<Rigidbody2D>().AddRelativeForce(new Vector3(launchVelocity, 0, 0));
         }
     }
 
